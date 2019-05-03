@@ -1,6 +1,7 @@
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 
@@ -131,9 +132,9 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelos
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public HashSet<clsVuelo> cargarIda(String aeroOrigen, String ciudadDestino, Date fecha) 
+	public ArrayList<clsVuelo> cargarIda(String aeroOrigen, String ciudadDestino, Date fecha) 
 	{
-		HashSet<clsVuelo>  retorno = new HashSet<>();
+		ArrayList<clsVuelo>  retorno = new ArrayList<clsVuelo>();
 		
 		for(clsVuelo a : ListaVuelos)
 		{
@@ -147,10 +148,10 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelos
 	}
 
 	@Override
-	public HashSet<clsVuelo> cargarIdaVuelta(String ciudadOrigen, String ciudadDestino, Date fechaIda,
+	public ArrayList<clsVuelo> cargarIdaVuelta(String ciudadOrigen, String ciudadDestino, Date fechaIda,
 			Date fechaVuelta) 
 	{
-		HashSet<clsVuelo>  retorno = new HashSet<>();
+		ArrayList<clsVuelo>  retorno = new ArrayList<clsVuelo>();
 		
 		for(clsVuelo a : ListaVuelos)
 		{
@@ -168,8 +169,8 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelos
 	}
 
 	@Override
-	public HashSet<clsVuelo> cargarCualquierMomento(String ciudadOrigen, String ciudadDestino) {
-		HashSet<clsVuelo>  retorno = new HashSet<>();
+	public ArrayList<clsVuelo> cargarCualquierMomento(String ciudadOrigen, String ciudadDestino) {
+		ArrayList<clsVuelo>  retorno = new ArrayList<clsVuelo>();
 		
 		for(clsVuelo a : ListaVuelos)
 		{
