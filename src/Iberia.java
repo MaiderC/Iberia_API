@@ -7,16 +7,15 @@ import java.util.HashSet;
 
 public class Iberia extends UnicastRemoteObject implements itfCargaVuelos
 {
-	private HashSet <clsVuelo>  ListaVuelos= new HashSet <clsVuelo>();
-
-	public HashSet<clsVuelo> getListaVuelos() {
+	private ArrayList <clsVuelo>  ListaVuelos= new ArrayList <clsVuelo>();
+	
+	public ArrayList<clsVuelo> getListaVuelos() {
 		return ListaVuelos;
 	}
 
-	public void setListaVuelos(HashSet<clsVuelo> listaVuelos) {
+	public void setListaVuelos(ArrayList<clsVuelo> listaVuelos) {
 		ListaVuelos = listaVuelos;
 	}
-
 	
 	public Iberia() throws RemoteException 
 	{
