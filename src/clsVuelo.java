@@ -1,17 +1,14 @@
-
-
 import java.util.ArrayList;
-import java.util.Date;
 
 public class clsVuelo
 {
 	private String codVuelo;
 	private clsAeropuerto aeropuertoOrigen;
 	private clsAeropuerto aeropuertoDestino;
-	private Date fecha;
-	private int numAsientos; //Los asientos librs los controlamos nosotros aparte
+	private String fecha;
+	private ArrayList<Integer> Asientos;
+	private ArrayList<Integer> AsientosOcupados;
 	private double precio;
-	
 
 	public clsVuelo() 
 	{
@@ -19,17 +16,19 @@ public class clsVuelo
 		this.aeropuertoOrigen = null;
 		this.aeropuertoDestino = null;
 		this.fecha = null;
-		this.numAsientos = 0;
+		this.Asientos = null;
+		this.AsientosOcupados = null;
 		this.precio = 0;
 	}
 	
-	public clsVuelo(String codVuelo, clsAeropuerto aeropuertoOrigen, clsAeropuerto aeropuertoDestino, Date fecha, int numAsientos, double precio) 
+	public clsVuelo( ArrayList<Integer> Asientos,  ArrayList<Integer> AsientosOcupados, String codVuelo, clsAeropuerto aeropuertoOrigen, clsAeropuerto aeropuertoDestino, String fecha, double precio) 
 	{
 		this.codVuelo = codVuelo;
 		this.aeropuertoOrigen = aeropuertoOrigen;
 		this.aeropuertoDestino = aeropuertoDestino;
 		this.fecha = fecha;
-		this.numAsientos = numAsientos;
+		this.Asientos = Asientos;
+		this.AsientosOcupados = AsientosOcupados;
 		this.precio = precio;
 	}
 
@@ -57,20 +56,20 @@ public class clsVuelo
 		this.aeropuertoDestino = aeropuertoDestino;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fechaIda) {
-		this.fecha = fechaIda;
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 
-	public int getNumAsientos() {
-		return numAsientos;
+	public ArrayList<Integer> getAsientosOcupados() {
+		return AsientosOcupados;
 	}
 
-	public void setNumAsientos(int numAsientos) {
-		this.numAsientos = numAsientos;
+	public void setAsientosOcupados(ArrayList<Integer> asientosOcupados) {
+		AsientosOcupados = asientosOcupados;
 	}
 
 	public double getPrecio() {
@@ -80,8 +79,6 @@ public class clsVuelo
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-
-	
 
 	@Override
 	public int hashCode() {
@@ -108,4 +105,8 @@ public class clsVuelo
 		return true;
 	}
 	
+	public void addAsientoOcupado(int asiento)
+	{
+		AsientosOcupados.add(asiento);
+	}
 }
