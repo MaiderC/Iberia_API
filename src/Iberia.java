@@ -1,13 +1,16 @@
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 
+
 public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 {
-	private ArrayList <clsVuelo>  ListaVuelos= new ArrayList <clsVuelo>();
+	private ArrayList <clsVuelo>  ListaVuelos= new ArrayList <clsVuelo>();	
 	
 	public ArrayList<clsVuelo> getListaVuelos() {
 		return ListaVuelos;
@@ -141,6 +144,8 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 				nuevoVuelo.setFecha("13/06/2019");
 				nuevoVuelo.setPrecio(79.89);
 				ListaVuelos.add(nuevoVuelo);
+				
+			
 	}			
 
 	/**
