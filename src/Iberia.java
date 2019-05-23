@@ -205,4 +205,10 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 		return retorno;
 	}
 
+	@Override
+	public ArrayList<clsVuelo> cargarTodos() 
+	{
+		return ListaVuelos;
+	}
+
 }

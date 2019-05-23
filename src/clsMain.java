@@ -5,7 +5,7 @@ public class clsMain {
 
 	static String IP = "127.0.0.1";
 	static String Puerto = "1099";
-	static String Service = "";
+	static String Service = "iberia";
 	
 	public static void main(String[] args) 
 	{
