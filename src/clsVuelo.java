@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class clsVuelo
+public class clsVuelo implements Serializable
 {
 	private String codVuelo;
 	private clsAeropuerto aeropuertoOrigen;
