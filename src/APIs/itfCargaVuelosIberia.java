@@ -1,7 +1,10 @@
+package APIs;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+
+import COMUN.clsVuelo;
 
 
 public interface itfCargaVuelosIberia extends Remote
