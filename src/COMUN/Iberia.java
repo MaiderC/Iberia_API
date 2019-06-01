@@ -7,19 +7,21 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+import com.sun.xml.internal.ws.util.StringUtils;
+
 import APIs.itfCargaVuelosIberia;
 
 
 
 public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 {
-	private ArrayList <clsVuelo>  ListaVuelos= new ArrayList <clsVuelo>();	
+	private ArrayList<String>  ListaVuelos= new ArrayList<String>();	
 	
-	public ArrayList<clsVuelo> getListaVuelos() {
+	public ArrayList<String> getListaVuelos() {
 		return ListaVuelos;
 	}
 
-	public void setListaVuelos(ArrayList<clsVuelo> listaVuelos) {
+	public void setListaVuelos(ArrayList<String> listaVuelos) {
 		ListaVuelos = listaVuelos;
 	}
 	
@@ -27,129 +29,38 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 	{
 		super();
 		//En el constructor, creamos todos los vuelos:
-				String codVuelo;
-				clsAeropuerto aeropuertoOrigen;
-				clsAeropuerto aeropuertoDestino;
-				String fecha;
-				int numAsientos;
-				double precio;
-				ArrayList<Integer> Asientos;
-				ArrayList<Integer> AsientosOcupados;
 				
-				clsVuelo  nuevoVuelo;
-		        //Vuelo 1 ( BARCELONA - BERLIN ):
-				codVuelo = "IB0001";
-				aeropuertoOrigen = new clsAeropuerto("BARC", "Barcelona", "España");
-				aeropuertoDestino = new clsAeropuerto("BER", "Berlin", "Alemania");
-				fecha = "30/05/2019";
-				numAsientos = 120;
-				precio = 180.90;
-				Asientos= new ArrayList<Integer>();
-				for(int i=0; i<numAsientos; i++)
-				{
-					Asientos.add(i);
-				}
-				AsientosOcupados = new ArrayList<Integer>();
-								
-				nuevoVuelo = new clsVuelo(Asientos,AsientosOcupados,codVuelo,aeropuertoOrigen,aeropuertoDestino, fecha, precio);
-				ListaVuelos.add(nuevoVuelo);
+		        //( BARCELONA - BERLIN )
+				ListaVuelos.add("IB0001;Barcelona;Berlin;30/05/2019;180.90;120");
+				ListaVuelos.add("IB0002;Barcelona;Berlin;23/05/2019;230.15;120");
+				ListaVuelos.add("IB0002;Barcelona;Berlin;01/06/2019;79.79;120");
 				
-				//Vuelo 2 (lo mismo pero en distita fecha con distinto precio:
-				nuevoVuelo.setCodVuelo("IB0002");
-				nuevoVuelo.setFecha("23/05/2019");
-				nuevoVuelo.setPrecio(230.15);
-				ListaVuelos.add(nuevoVuelo);
-				//Vuelo3:
-				nuevoVuelo.setCodVuelo("IB0003");
-				nuevoVuelo.setFecha("01/06/2019");
-				nuevoVuelo.setPrecio(79.89);
-				ListaVuelos.add(nuevoVuelo);
+				//( BERLIN - BARCELONA )
+				ListaVuelos.add("IB0004;Berlin;Barcelona;13/06/2019;180.90;120");
+				ListaVuelos.add("IB0005;Berlin;Barcelona;02/05/2019;230.15;120");
+				ListaVuelos.add("IB0006;Berlin;Barcelona;10/05/2019;79.89;120");
 				
-				//Vuelo 4 ( BERLIN - BARCELONA ):
-				codVuelo = "IB0004";
-				aeropuertoDestino = new clsAeropuerto("BARC", "Barcelona", "España");
-				aeropuertoOrigen = new clsAeropuerto("BER", "Berlin", "Alemania");
-				fecha = "13/06/2019";
-				numAsientos = 120;
-				precio = 180.90;
-				nuevoVuelo = new clsVuelo(Asientos,AsientosOcupados,codVuelo,aeropuertoOrigen,aeropuertoDestino, fecha, precio);
-				ListaVuelos.add(nuevoVuelo);
+				//( MADRID - DUBLIN )
+				ListaVuelos.add("IB0007;Madrid;Dublin;23/05/2019;180.90;120");
+				ListaVuelos.add("IB0008;Madrid;Dublin;30/05/2019;230.15;120");
+				ListaVuelos.add("IB0009;Madrid;Dublin;13/05/2019;79.89;120");
 				
-				//Vuelo 5 (lo mismo pero en distita fecha con distinto precio:
-				nuevoVuelo.setCodVuelo("IB0005");
-				nuevoVuelo.setFecha("02/05/2019");
-				nuevoVuelo.setPrecio(230.15);
-				ListaVuelos.add(nuevoVuelo);
-				//Vuelo6:
-				nuevoVuelo.setCodVuelo("IB0006");
-				nuevoVuelo.setFecha("10/05/2019");
-				nuevoVuelo.setPrecio(79.89);
-				ListaVuelos.add(nuevoVuelo);
+				//( DUBLIN - MADRID)
+				ListaVuelos.add("IB0010;Dublin;Madrid;13/06/2019;180.90;120");
+				ListaVuelos.add("IB0011;Dublin;Madrid;27/06/2019;230.15;120");
+				ListaVuelos.add("IB0012;Dublin;Madrid;17/06/2019;79.89;120");
 				
-				//Vuelo 7 ( MADRID - DUBLIN )
-				codVuelo = "IB0007";
-				aeropuertoOrigen = new clsAeropuerto("MAD", "Madrir", "España");
-				aeropuertoDestino = new clsAeropuerto("DUB", "Dublin", "Irlanda");
-				fecha = "23/05/2019";
-				numAsientos = 120;
-				precio = 180.90;
-				nuevoVuelo = new clsVuelo(Asientos,AsientosOcupados,codVuelo,aeropuertoOrigen,aeropuertoDestino, fecha, precio);
-				ListaVuelos.add(nuevoVuelo);
+				//( ATENAS - TOKIO )
+				ListaVuelos.add("IB0013;Atenas;Tokio;09/05/2019;180.90;120");
+				ListaVuelos.add("IB0014;Atenas;Tokio;02/05/2019;230.15;120");
+				ListaVuelos.add("IB0015;Atenas;Tokio;13/06/2019;79.89;120");
 				
-				//Vuelo 8 (lo mismo pero en distita fecha con distinto precio:
-				nuevoVuelo.setCodVuelo("IB0008");
-				nuevoVuelo.setFecha("30/05/2019");
-				nuevoVuelo.setPrecio(230.15);
-				ListaVuelos.add(nuevoVuelo);
-				//Vuelo 9:
-				nuevoVuelo.setCodVuelo("IB0009");
-				nuevoVuelo.setFecha("13/05/2019");
-				nuevoVuelo.setPrecio(79.89);
-				ListaVuelos.add(nuevoVuelo);
-				
-				//Vuelo 10 ( DUBLIN - MADRID)
-				codVuelo = "IB0010";
-				aeropuertoDestino = new clsAeropuerto("MAD", "Madrir", "España");
-				aeropuertoOrigen = new clsAeropuerto("DUB", "Dublin", "Irlanda");
-				fecha = "13/06/2019";
-				numAsientos = 120;
-				precio = 180.90;
-				nuevoVuelo = new clsVuelo(Asientos,AsientosOcupados,codVuelo,aeropuertoOrigen,aeropuertoDestino, fecha, precio);
-				ListaVuelos.add(nuevoVuelo);
-				
-				//Vuelo 11 (lo mismo pero en distita fecha con distinto precio:
-				nuevoVuelo.setCodVuelo("IB0011");
-				nuevoVuelo.setFecha("27/06/2019");
-				nuevoVuelo.setPrecio(230.15);
-				ListaVuelos.add(nuevoVuelo);
-				//Vuelo 12:
-				nuevoVuelo.setCodVuelo("IB0012");
-				nuevoVuelo.setFecha("17/06/2019");
-				nuevoVuelo.setPrecio(79.89);
-				ListaVuelos.add(nuevoVuelo);
-				
-				//Vuelo 13 ( ATENAS - TOKIO ):
-				codVuelo = "IB0013";
-				aeropuertoOrigen = new clsAeropuerto("ATE", "Atenas", "Grecia");
-				aeropuertoDestino = new clsAeropuerto("TOK", "Tokio", "Japón");
-				fecha = "09/05/2019";
-				numAsientos = 120;
-				precio = 180.90;
-				nuevoVuelo = new clsVuelo(Asientos,AsientosOcupados,codVuelo,aeropuertoOrigen,aeropuertoDestino, fecha, precio);
-				ListaVuelos.add(nuevoVuelo);
-				//Vuelo 14 (lo mismo pero en distita fecha con distinto precio:
-				nuevoVuelo.setCodVuelo("IB0014");
-				nuevoVuelo.setFecha("02/05/2019");
-				nuevoVuelo.setPrecio(230.15);
-				ListaVuelos.add(nuevoVuelo);
-				//Vuelo 15:
-				nuevoVuelo.setCodVuelo("IB0015");
-				nuevoVuelo.setFecha("13/06/2019");
-				nuevoVuelo.setPrecio(79.89);
-				ListaVuelos.add(nuevoVuelo);
-				
-			
+				//( TOKIO - ATENAS )
+				ListaVuelos.add("IB0016;Tokio;Atenas;13/06/2019;180.90;120");
+				ListaVuelos.add("IB0017;Tokio;Atenas;27/06/2019;230.15;120");
+				ListaVuelos.add("IB0018;Tokio;Atenas;17/06/2019;79.89;120");
 	}			
+	
 
 	/**
 	 * 
@@ -157,15 +68,18 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public ArrayList<clsVuelo> cargarIda(String aeroOrigen, String ciudadDestino, String fecha)  throws RemoteException
+	public ArrayList<String> cargarIda(String ciudadOrigen, String ciudadDestino, String fecha)  throws RemoteException
 	{
-		ArrayList<clsVuelo> retorno = new ArrayList<clsVuelo>();
+		ArrayList<String> retorno = new ArrayList<String>();
+		String[] vueloToken;
 		
-		for(clsVuelo a : ListaVuelos)
+		for(String aux: ListaVuelos)
 		{
-			if( (a.getAeropuertoOrigen().getCiudad()).equals(aeroOrigen) && (a.getAeropuertoDestino().getCiudad()).equals(ciudadDestino)  && (a.getFecha())==fecha)
+			vueloToken = aux.split(";");
+			
+			if(vueloToken[1].equals(ciudadOrigen) && vueloToken[2].equals(ciudadDestino) && vueloToken[3].equals(fecha))
 			{
-				retorno.add(a);
+				retorno.add(aux);
 			}
 		}
 		
@@ -173,19 +87,23 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 	}
 
 	@Override
-	public ArrayList<clsVuelo> cargarIdaVuelta(String ciudadOrigen, String ciudadDestino, String fechaIda, String fechaVuelta)  throws RemoteException
+	public ArrayList<String> cargarIdaVuelta(String ciudadOrigen, String ciudadDestino, String fechaIda, String fechaVuelta)  throws RemoteException
 	{
-		ArrayList<clsVuelo>  retorno = new ArrayList<clsVuelo>();
+		ArrayList<String> retorno = new ArrayList<String>();
+		String[] vueloToken;
 		
-		for(clsVuelo a : ListaVuelos)
+		for(String aux: ListaVuelos)
 		{
-			//Comprobación de la IDA --> sól comprobamos la vuelta si se cumple la ida
-			if( (a.getAeropuertoOrigen().getCiudad()).equals(ciudadOrigen) && (a.getAeropuertoDestino().getCiudad()).equals(ciudadDestino)  && (a.getFecha())==fechaIda)
+			vueloToken = aux.split(";");
+			
+			if(vueloToken[1].equals(ciudadOrigen) && vueloToken[2].equals(ciudadDestino) && vueloToken[3].equals(fechaIda))
 			{
-				if( (a.getAeropuertoOrigen().getCiudad()).equals(ciudadDestino) && (a.getAeropuertoDestino().getCiudad()).equals(ciudadOrigen)  && (a.getFecha())==fechaVuelta)
-				{
-					retorno.add(a);
-				}
+				retorno.add(aux);
+			}
+			
+			if(vueloToken[1].equals(ciudadDestino) && vueloToken[2].equals(ciudadOrigen) && vueloToken[3].equals(fechaVuelta))
+			{
+				retorno.add(aux);
 			}
 		}
 		
@@ -193,15 +111,18 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 	}
 
 	@Override
-	public ArrayList<clsVuelo> cargarCualquierMomento(String ciudadOrigen, String ciudadDestino) throws RemoteException 
+	public ArrayList<String> cargarCualquierMomento(String ciudadOrigen, String ciudadDestino) throws RemoteException 
 	{
-		ArrayList<clsVuelo>  retorno = new ArrayList<clsVuelo>();
+		ArrayList<String> retorno = new ArrayList<String>();
+		String[] vueloToken;
 		
-		for(clsVuelo a : ListaVuelos)
+		for(String aux: ListaVuelos)
 		{
-			if( (a.getAeropuertoOrigen().getCiudad()).equals(ciudadOrigen) && (a.getAeropuertoDestino().getCiudad()).equals(ciudadDestino))
+			vueloToken = aux.split(";");
+			
+			if(vueloToken[1].equals(ciudadOrigen) && vueloToken[2].equals(ciudadDestino))
 			{
-				retorno.add(a);
+				retorno.add(aux);
 			}
 		}
 		
@@ -209,9 +130,8 @@ public class Iberia extends UnicastRemoteObject implements itfCargaVuelosIberia
 	}
 
 	@Override
-	public ArrayList<clsVuelo> cargarTodos()  throws RemoteException
+	public ArrayList<String> cargarTodos()  throws RemoteException
 	{
 		return ListaVuelos;
 	}
-
 }
