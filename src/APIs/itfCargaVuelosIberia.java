@@ -4,8 +4,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-
-
 public interface itfCargaVuelosIberia extends Remote
 {
 	ArrayList<String> cargarIda(String ciudadOrigen, String ciudadDestino, String fecha) throws RemoteException;

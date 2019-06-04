@@ -1,13 +1,7 @@
 package COMUN;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.Date;
 import java.util.ArrayList;
-import java.util.HashSet;
-
-import com.sun.xml.internal.ws.util.StringUtils;
 
 import APIs.itfCargaVuelosIberia;
 
